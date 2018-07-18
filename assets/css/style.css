@@ -5,7 +5,7 @@
     padding-left: 0px;
 }
 
-h2{
+h2, h4{
    color:white;
 }
 
@@ -48,13 +48,44 @@ body{
     border:solid 2px #000;
     border-radius:10px;
     box-shadow:0 6px 6px -6px #000;
-    /* display:inline-block; */
     flex:1 1;
     height:200px;
     margin:1vmin;
     overflow:hidden;
     position:relative;
     padding:20px;
+  }
+
+  .panel-started {
+    background: url(../images/square-bg.png);
+    border:solid 2px #000;
+    border-radius:10px;
+    box-shadow:0 6px 6px -6px #000;
+    display:inline-block;
+    flex:1 1;
+    height:200px;
+    margin:1vmin;
+    overflow:hidden;
+    position:relative;
+    padding:20px;
+    text-align: center;
+    width:25%;
+  }
+
+  .panel-game {
+    background: url(../images/square-bg.png);
+    border:solid 2px #000;
+    border-radius:10px;
+    box-shadow:0 6px 6px -6px #000;
+    display:inline-block;
+    flex:1 1;
+    height:200px;
+    margin:1vmin;
+    overflow:hidden;
+    position:relative;
+    padding:20px;
+    text-align: center;
+    width:25%;
   }
 
   .panel h2{
@@ -100,13 +131,17 @@ body{
 }
 
 /* separates text */
-h1, h2, h3, p{
+h1, h2, h3, h4, p{
 	margin-bottom: 15px; /* space that follows headers and paragraphs */	
 }
 
 /* colours and text shadow for headers */
-h1,h2,h3{
+h1,h2,h3, h4{
 	text-shadow: 0 5px 5px rgba(0,0,0,1); /* text shadow for headers */
+}
+
+h4{
+    margin-top:25px;
 }
 /* individual font sizes */
 h1 { font-size: 200%; }

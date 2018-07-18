@@ -18,44 +18,61 @@
 
 <body>
 
-    
+
     <div class="container-fluid">
         <div class="panel">
             <p class="text top-left">Introducing...</p>
             <h2>Super Hero Hangman</h2>
             <p class="text bottom-right">...it's super fun!</p>
-        
+
         </div>
     </div>
 
-    <div class="container-fluid" id="get-started">
-            <div class="p-3 mb-2 bg-dark text-white text-center text-uppercase"><h3>Press any key to get started!</h3></div>
+    <div class="container-fluid">
+        <div class="panel-started">
+            <p class="text top-left">How to play...</p>
+            <h4>Press any key to get started!</h4>
+            <p>Guess the name of each super hero by guessing letters to reveal their name.</p>
+            <hr />
+        </div>
+    </div>
+
+    <div class="container-fluid" id="theGame">
+            <div class="panel-game">
+                    <h5 id="game"></h5>
+            </div>
         </div>
 
-        <div class="container-fluid" id="theGame">
-                <div class="p-3 mb-2 bg-dark text-white text-center text-uppercase"><h5 id="game"></h5></div>
+    
+
+    <div class="container-fluid" id="theGame">
+        <div class="p-3 mb-2 bg-dark text-white text-center text-uppercase">
+            <h5 id="guesses"></h5>
         </div>
+    </div>
 
-        <div class="container-fluid" id="theGame">
-                <div class="p-3 mb-2 bg-dark text-white text-center text-uppercase"><h5 id="guesses"></h5></div>
+    <div class="container-fluid" id="theGame">
+        <div class="p-3 mb-2 bg-dark text-white text-center text-uppercase">Letters that have been guessed:
+            <h5 id="showLettersGuessed"></h5>
         </div>
+    </div>
 
-        <div class="container-fluid" id="theGame">
-                <div class="p-3 mb-2 bg-dark text-white text-center text-uppercase">Letters that have been guessed:<h5 id="showLettersGuessed"></h5></div>
+    <div class="container-fluid" id="theGame">
+        <div class="p-3 mb-2 bg-dark text-white text-center text-uppercase">
+            <h5 id="wins"></h5>
         </div>
+    </div>
 
-        <div class="container-fluid" id="theGame">
-                <div class="p-3 mb-2 bg-dark text-white text-center text-uppercase"><h5 id="wins"></h5></div>
+    <div class="container-fluid" id="theGame">
+        <div class="p-3 mb-2 bg-dark text-white text-center text-uppercase">
+            <h5 id="losses"></h5>
         </div>
-
-        <div class="container-fluid" id="theGame">
-                <div class="p-3 mb-2 bg-dark text-white text-center text-uppercase"><h5 id="losses"></h5></div>
-        </div>
+    </div>
 
 
-        <p id="question"></p>
-        <p id="wins"></p>
-     <p id="losses"></p>
+    <p id="question"></p>
+    <p id="wins"></p>
+    <p id="losses"></p>
 
     <!-- Link Hangman game javascript file -->
     <script src="assets/javascript/game.js"></script>
