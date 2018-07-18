@@ -6,9 +6,111 @@
 }
 
 h2{
-   
+   color:white;
 }
+
 
 #theGame{
   
 }
+
+
+/* import font */
+@font-face {
+    font-family: 'slapstick_comic';
+    src: url('../fonts/SF_Slapstick_Comic-webfont.eot');
+    src: url('../fonts/SF_Slapstick_Comic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/SF_Slapstick_Comic-webfont.woff') format('woff'),
+         url('../fonts/SF_Slapstick_Comic-webfont.ttf') format('truetype'),
+         url('../fonts/SF_Slapstick_Comic-webfont.svg#slapstick_comic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* compressed eric meyer rest */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
+
+p{
+    font-size:100%;
+}
+
+/* body */
+body{
+	font-family: 'slapstick_comic';	
+	font-size: 22px;
+	line-height: 1.136; /* exactly 25px line height */
+	background: url(../images/carbon_fibre.png);/*background body image */
+	color: #311413; 
+}
+
+.panel {
+    background: url(../images/square-bg.png);
+    border:solid 2px #000;
+    border-radius:10px;
+    box-shadow:0 6px 6px -6px #000;
+    /* display:inline-block; */
+    flex:1 1;
+    height:200px;
+    margin:1vmin;
+    overflow:hidden;
+    position:relative;
+    padding:20px;
+  }
+
+  .panel h2{
+    text-align: center;
+    vertical-align: middle;
+    line-height: 150px;
+  }
+
+  .text {
+    background-color:#fff;
+    border:solid 2px #000;
+    margin:0;
+    padding:3px 10px;
+  }
+  
+  .top-left {
+    left:-6px;
+    position:absolute;
+    top:-2px;
+    transform:skew(-15deg);
+    padding-left:15px;
+  }
+
+  .bottom-right {
+    bottom:-2px;
+    position:absolute;
+    right:-6px;
+    transform:skew(-15deg);
+    padding-right:15px;
+  }
+
+  .summary {
+    width: 845px;
+    height: 138px;
+    border: 3px solid;
+    border-radius: 10px;
+    border-color: #000;
+    background-color: #969168;
+    margin-top: 51px;
+    margin-left: 57px;
+    margin-bottom: 49px;
+    padding: 5px;
+}
+
+/* separates text */
+h1, h2, h3, p{
+	margin-bottom: 15px; /* space that follows headers and paragraphs */	
+}
+
+/* colours and text shadow for headers */
+h1,h2,h3{
+	text-shadow: 0 5px 5px rgba(0,0,0,1); /* text shadow for headers */
+}
+/* individual font sizes */
+h1 { font-size: 200%; }
+h2 { font-size: 200%; }
+h3 { font-size: 150%; }
+
+/*
