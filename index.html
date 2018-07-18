@@ -18,44 +18,54 @@
 
 <body>
 
-
+    <!-- Row 2 -->
     <div class="container-fluid">
-        <div class="panel">
-            <p class="text top-left">Introducing...</p>
-            <h2>Super Hero Hangman</h2>
-            <p class="text bottom-right">...it's super fun!</p>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel">
+                    <p class="text top-left">Introducing...</p>
+                    <h2>Super Hero Hangman</h2>
+                    <p class="text bottom-right">...it's super fun!</p>
 
+                </div>
+            </div>
         </div>
     </div>
 
     <div class="container-fluid">
-        <div class="panel-started">
-            <p class="text top-left">How to play...</p>
-            <h4>Press any key to get started!</h4>
-            <p>Guess the name of each super hero by guessing letters to reveal their name.</p>
-            <p>Good luck!</p>
-            <hr />
-        </div>
-    </div>
-
-    <div class="container-fluid" id="theGame">
-            <div class="panel-game">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="panel-started">
+                    <p class="text top-left">How to play...</p>
+                    <h4>Press any key to get started!</h4>
+                    <p>Guess the name of each super hero by guessing letters to reveal their name.</p>
+                    <p>Good luck!</p>
+                    <hr />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel-game">
                     <p class="text top-left">The mystery name...</p>
                     <h2 id="game"></h2>
                     <p class="text bottom-right">...guess the super hero!</p>
+                </div>
             </div>
-        </div>
-
-        <div class="container-fluid">
+            <div class="col-md-4">
                 <div class="panel-letters">
                     <p class="text top-left">Letters that have been guessed...</p>
                     <h3 id="showLettersGuessed"></h3>
                     <hr />
                 </div>
             </div>
-    
+        </div>
+    </div>
 
-    
+
+
+   
+
+
+
 
     <div class="container-fluid" id="theGame">
         <div class="p-3 mb-2 bg-dark text-white text-center text-uppercase">

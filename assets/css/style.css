@@ -68,7 +68,7 @@ body{
     position:relative;
     padding:20px;
     text-align: center;
-    width:30%;
+    width:100%;
     float:left;
   }
 
@@ -85,7 +85,7 @@ body{
     position:relative;
     padding:20px;
     text-align: center;
-    width:37%;
+    width:100%;
     float:left;
   }
 
@@ -102,7 +102,7 @@ body{
     position:relative;
     padding:20px;
     text-align: center;
-    width:30%;
+    width:100%;
     float:left;
   }
 
@@ -141,18 +141,6 @@ body{
     padding-right:15px;
   }
 
-  .summary {
-    width: 845px;
-    height: 138px;
-    border: 3px solid;
-    border-radius: 10px;
-    border-color: #000;
-    background-color: #969168;
-    margin-top: 51px;
-    margin-left: 57px;
-    margin-bottom: 49px;
-    padding: 5px;
-}
 
 /* separates text */
 h1, h2, h3, h4, p{
