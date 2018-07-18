@@ -1,3 +1,4 @@
+// initialize variables
 var game = ["SUPERMAN", "CYBORG", "BATMAN", "SPIDERMAN", "ULTRON", "VISION", "FALCON", "LOKI", "HAWKEYE", "THOR"];
 var choice = Math.floor(Math.random() * game.length - 1);
 var answer = game[choice];
@@ -18,6 +19,7 @@ document.getElementById("showLettersGuessed").innerHTML = lettersGuessedAlready.
 document.getElementById("wins").innerHTML = "Wins: " + wins;
 document.getElementById("losses").innerHTML = "Losses: " + losses;
 
+// setup game function
 var setup = function () {
     for (var i = 0; i < answer.length; i++) {
         display[i] = "_ ";
@@ -59,5 +61,7 @@ document.onkeyup = function (event) {
 
     }
 }
+
+// run functions
 
 setup();
