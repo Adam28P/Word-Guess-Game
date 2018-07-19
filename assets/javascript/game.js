@@ -1,6 +1,6 @@
 // initialize variables
 var game = ["SUPERMAN", "CYBORG", "BATMAN", "SPIDERMAN", "VISION", "FALCON", "LOKI", "HAWKEYE", "THOR", "WOLVERINE", "FLASH", "SUPERGIRL", "DAREDEVIL", "HULK", "AQUAMAN", "BATGIRL", "BATWOMAN", "WONDERWOMAN", "ANTMAN", "WASP"];
-var choice = Math.floor(Math.random() * game.length - 1);
+var choice = Math.floor(Math.random() * game.length);
 var answer = game[choice];
 var myLength = answer.length;
 var display = [myLength];
@@ -59,6 +59,13 @@ document.onkeyup = function (event) {
     }
 }
 
+var x = document.getElementById("myAudio"); 
+
+function playAudio() { 
+    x.play(); 
+} 
+
 // run functions
 
 setup();
+playAudio();

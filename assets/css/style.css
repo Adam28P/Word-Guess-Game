@@ -63,17 +63,17 @@ transition: all 0.5s ease;
     line-height: 150px;
   }
 
-  #title{
+  .panel h1{
     animation-name: fadeIn;
-	-webkit-animation-name: fadeIn;	
-	-moz-animation-name: fadeIn;	
+	-webkit-animation-name: fadeIn;
+	-moz-animation-name: fadeIn;
 	-o-animation-name: fadeIn;	
 
 	animation-duration: 2.5s;	
 	-webkit-animation-duration: 2.5s;
 	-moz-animation-duration: 2.5s;
 	-o-animation-duration: 2.5s;
-
+	
 	animation-timing-function: ease-in-out;	
 	-webkit-animation-timing-function: ease-in-out;	
 	-moz-animation-timing-function: ease-in-out;	
