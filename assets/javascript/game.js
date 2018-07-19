@@ -14,10 +14,9 @@ var wins = 0;
 var losses = 0;
 var wordToGuessIndex = 0;
 
-document.getElementById("guesses").innerHTML = "YOU HAVE " + attemptsLeft + " GUESSES LEFT!";
+document.getElementById("guesses").innerHTML = attemptsLeft;
 document.getElementById("showLettersGuessed").innerHTML = lettersGuessedAlready.join(" ");
-document.getElementById("wins").innerHTML = "Wins: " + wins;
-document.getElementById("losses").innerHTML = "Losses: " + losses;
+document.getElementById("wins").innerHTML =  wins;
 
 // setup game function
 var setup = function () {
@@ -52,11 +51,11 @@ document.onkeyup = function (event) {
         document.getElementById("showLettersGuessed").innerHTML = lettersGuessedAlready.join(" ");
 
         if (win < 1) {
-            document.getElementById("guesses").innerHTML = "YOU WIN!";
+           // you win
         } else if (attemptsLeft < 1) {
-            document.getElementById("guesses").innerHTML = "YOU LOSE!"
+            // lose
         } else {
-            document.getElementById("guesses").innerHTML = "YOU HAVE " + attemptsLeft + " GUESSES LEFT!";
+            document.getElementById("guesses").innerHTML = attemptsLeft;
         }
 
     }
