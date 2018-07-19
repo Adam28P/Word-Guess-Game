@@ -28,8 +28,6 @@ var setup = function () {
     output = "";
 }
 
-
-
 document.onkeyup = function (event) {
     output = "";
     userLetter = event.key.toUpperCase();

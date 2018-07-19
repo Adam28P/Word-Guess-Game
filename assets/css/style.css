@@ -1,18 +1,8 @@
 
 
-.container-fluid {
-    padding-right: 0px; 
-    padding-left: 0px;
-}
-
-h2, h3, h4{
+h1, h2, h3, h4{
    color:white;
 }
-
-#theGame{
-  
-}
-
 
 /* import font */
 @font-face {
@@ -53,9 +43,18 @@ body{
     overflow:hidden;
     position:relative;
     padding:20px;
+
+    	/* Firefox */
+-moz-transition: all 0.5s ease;
+/* WebKit */
+-webkit-transition: all 0.5s ease;
+/* Opera */
+-o-transition: all 0.5s ease;
+/* Standard */
+transition: all 0.5s ease;
   }
 
-  .panel h2{
+  .panel h2, h1{
     text-align: center;
     vertical-align: middle;
     line-height: 150px;
@@ -83,6 +82,18 @@ body{
 	-moz-animation-timing-function: ease-in-out;	
 	-o-animation-timing-function: ease-in-out;	
   }
+
+  /* panel hover */
+.panel:hover {
+    /* Firefox */
+    -moz-transform: scale(1.03);
+    /* WebKit */
+    -webkit-transform: scale(1.03);
+    /* Opera */ 
+    -o-transform: scale(1.03);
+    /* Standard */ 
+    transform: scale(1.03);
+    }
 
   .text {
     background-color:#fff;
@@ -127,7 +138,7 @@ h4{
     margin-top:25px;
 }
 /* individual font sizes */
-h1 { font-size: 200%; }
+h1 { font-size: 250%; }
 h2 { font-size: 200%; }
 h3 { font-size: 150%; }
 
