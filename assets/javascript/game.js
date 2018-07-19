@@ -1,5 +1,5 @@
 // initialize variables
-var game = ["SUPERMAN", "CYBORG", "BATMAN", "SPIDERMAN", "ULTRON", "VISION", "FALCON", "LOKI", "HAWKEYE", "THOR"];
+var game = ["SUPERMAN", "CYBORG", "BATMAN", "SPIDERMAN", "VISION", "FALCON", "LOKI", "HAWKEYE", "THOR", "WOLVERINE", "FLASH", "SUPERGIRL", "DAREDEVIL", "HULK", "AQUAMAN", "BATGIRL", "BATWOMAN", "WONDERWOMAN", "ANTMAN", "WASP"];
 var choice = Math.floor(Math.random() * game.length - 1);
 var answer = game[choice];
 var myLength = answer.length;
