@@ -14,7 +14,7 @@ var wins = 0;
 var losses = 0;
 var wordToGuessIndex = 0;
 
-var x = document.getElementById("myAudio"); 
+var x = document.getElementById("startAudio"); 
 
 function playAudio() { 
     x.play(); 
