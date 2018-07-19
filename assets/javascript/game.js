@@ -14,6 +14,12 @@ var wins = 0;
 var losses = 0;
 var wordToGuessIndex = 0;
 
+var x = document.getElementById("myAudio"); 
+
+function playAudio() { 
+    x.play(); 
+} 
+
 document.getElementById("guesses").innerHTML = attemptsLeft;
 document.getElementById("showLettersGuessed").innerHTML = lettersGuessedAlready.join(" ");
 document.getElementById("wins").innerHTML =  wins;
@@ -26,6 +32,7 @@ var setup = function () {
     }
     document.getElementById("game").innerHTML = output;
     output = "";
+    playAudio();
 }
 
 document.onkeyup = function (event) {
@@ -59,13 +66,8 @@ document.onkeyup = function (event) {
     }
 }
 
-var x = document.getElementById("myAudio"); 
 
-function playAudio() { 
-    x.play(); 
-} 
 
 // run functions
 
 setup();
-playAudio();
