@@ -1,5 +1,5 @@
 // initialize variables
-var game = ["SUPERMAN", "CYBORG", "BATMAN", "SPIDERMAN", "VISION", "FALCON", "LOKI", "HAWKEYE", "THOR", "WOLVERINE", "FLASH", "SUPERGIRL", "DAREDEVIL", "HULK", "AQUAMAN", "BATGIRL", "BATWOMAN", "WONDERWOMAN", "ANTMAN", "WASP"];
+var game = ["SUPERMAN", "CYBORG", "BATMAN", "SPIDERMAN", "VISION", "RAVEN", "FALCON", "LOKI", "HAWKEYE", "THOR", "WOLVERINE", "FLASH", "SUPERGIRL", "DAREDEVIL", "HULK", "AQUAMAN", "BATGIRL", "BATWOMAN", "ANTMAN", "WASP"];
 var choice = Math.floor(Math.random() * game.length);
 var answer = game[choice];
 var myLength = answer.length;
@@ -39,7 +39,7 @@ document.onkeyup = function (event) {
     output = "";
     userLetter = event.key.toUpperCase();
 
-    if (event.key.length == 1) {
+    if(event.keyCode >= 65 && event.keyCode <= 90) {
 
         for (var c = 0; c < answer.length; c++) {
             if (userLetter.toUpperCase() == letters[c]) {
