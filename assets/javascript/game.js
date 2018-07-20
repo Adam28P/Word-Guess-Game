@@ -1,73 +1,115 @@
-// initialize variables
-var game = ["SUPERMAN", "CYBORG", "BATMAN", "SPIDERMAN", "VISION", "RAVEN", "FALCON", "LOKI", "HAWKEYE", "THOR", "WOLVERINE", "FLASH", "SUPERGIRL", "DAREDEVIL", "HULK", "AQUAMAN", "BATGIRL", "BATWOMAN", "ANTMAN", "WASP"];
-var choice = Math.floor(Math.random() * game.length);
-var answer = game[choice];
-var myLength = answer.length;
-var display = [myLength];
-var win = myLength;
-var letters = answer.split('');
-var attemptsLeft = 12;
-var output = "";
-var userLetter = "";
-var lettersGuessedAlready = [];
+// Initialize variables
+var wordBank = ["SUPERMAN", "CYBORG", "BATMAN", "SPIDERMAN", "VISION", "RAVEN", "FALCON", "LOKI", "HAWKEYE", "THOR", "WOLVERINE", "FLASH", "SUPERGIRL", "DAREDEVIL", "HULK", "AQUAMAN", "BATGIRL", "BATWOMAN", "ANTMAN", "WASP"];
+var guessAttempts = 10;
+var guessedLetters = [];
+var currentWordIndex;
+var guessingWord = [];
+var remainingGuesses = 0;
+var hasFinished = false;
+var gameStarted = false;
 var wins = 0;
-var losses = 0;
-var wordToGuessIndex = 0;
 
-var x = document.getElementById("startAudio"); 
+// Background game sounds
+var backgroundSound = new Audio('assets/music/avengers-theme.mp3');
+// var winSound = new Audio('./assets/sounds/you-win.wav');
+// var loseSound = new Audio('./assets/sounds/you-lose.wav');
 
-function playAudio() { 
-    x.play(); 
-} 
+// Function to reset our game
+function resetGame() {
+    remainingGuesses = guessAttempts;
+    gameStarted = false;
 
-document.getElementById("guesses").innerHTML = attemptsLeft;
-document.getElementById("showLettersGuessed").innerHTML = lettersGuessedAlready.join(" ");
-document.getElementById("wins").innerHTML =  wins;
+    // Generate random number to select a word from our wordBank array
+    currentWordIndex = Math.floor(Math.random() * (wordBank.length));
+    backgroundSound.play();
 
-// setup game function
-var setup = function () {
-    for (var i = 0; i < answer.length; i++) {
-        display[i] = "_ ";
-        output = output + display[i];
+    guessedLetters = [];
+    guessingWord = [];
+
+    // Display word on screen as underscores
+    for (var i = 0; i < wordBank[currentWordIndex].length; i++) {
+        guessingWord.push(" _ ");
+    }   
+
+    updateGame();
+};
+
+// Function to update the game on the index.html page
+function updateGame() {
+
+    document.getElementById("totalWins").innerText = wins;
+
+    // Display the parts of the word we have revealed on the user screen
+    var guessingWordText = "";
+    for (var i = 0; i < guessingWord.length; i++) {
+        guessingWordText += guessingWord[i];
     }
-    document.getElementById("game").innerHTML = output;
-    output = "";
-    playAudio();
+
+    // Display variables in the following elemnts on the index.html page
+    document.getElementById("currentWord").innerText = guessingWordText;
+    document.getElementById("remainingGuesses").innerText = remainingGuesses;
+    document.getElementById("guessedLetters").innerText = guessedLetters.join(" ");;
+};
+
+// Function to replace underscore with correct letter that user guessed 
+function evaluateGuess(letter) {
+    var positions = [];
+    for (var i = 0; i < wordBank[currentWordIndex].length; i++) {
+        if(wordBank[currentWordIndex][i] === letter) {
+            positions.push(i);
+        }
+    }
+
+    if (positions.length <= 0) {
+        remainingGuesses--;
+    } else {
+        for(var i = 0; i < positions.length; i++) {
+            guessingWord[positions[i]] = letter + " ";
+        }
+    }
+};
+
+// Function to check for a win
+function checkWin() {
+    if(guessingWord.indexOf(" _ ") === -1) {
+        wins++;
+        // winSound.play();
+        hasFinished = true;
+        resetGame();
+        hasFinished = false;
+    }
+};
+
+
+//Function to check for a loss
+function checkLoss()
+{
+    if(remainingGuesses <= 0) {
+        // loseSound.play();
+        hasFinished = true;
+        resetGame();
+        hasFinished = false;
+    }
 }
 
-document.onkeyup = function (event) {
-    output = "";
-    userLetter = event.key.toUpperCase();
-
-    if(event.keyCode >= 65 && event.keyCode <= 90) {
-
-        for (var c = 0; c < answer.length; c++) {
-            if (userLetter.toUpperCase() == letters[c]) {
-                display[c] = userLetter.toUpperCase();
-                win--;
-            }
-            output = output + display[c] + " ";
+// Function for when the user makes a guess
+function makeGuess(letter) {
+    if (remainingGuesses > 0) {
+        if (guessedLetters.indexOf(letter) === -1) {
+            guessedLetters.push(letter);
+            evaluateGuess(letter);
         }
-
-        document.getElementById("game").innerHTML = output;
-        output = "";
-        attemptsLeft--;
-        lettersGuessedAlready.push(userLetter);
-        document.getElementById("showLettersGuessed").innerHTML = lettersGuessedAlready.join(" ");
-
-        if (win < 1) {
-           // you win
-        } else if (attemptsLeft < 1) {
-            // lose
-        } else {
-            document.getElementById("guesses").innerHTML = attemptsLeft;
-        }
-
     }
-}
+    
+};
 
 
-
-// run functions
-
-setup();
+// Event listener for when the user presses a key
+document.onkeydown = function(event) {
+        if(event.keyCode >= 65 && event.keyCode <= 90) {
+            makeGuess(event.key.toUpperCase());
+            updateGame();
+            checkWin();
+            checkLoss();
+    }
+};
