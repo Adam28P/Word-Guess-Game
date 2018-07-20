@@ -13,6 +13,9 @@
     <!-- Link my own CSS Stylesheet -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
+     <!-- Link Hangman game javascript file -->
+ <script src="assets/javascript/game1.js"></script>
+
     <title>Super Hero Hangman Game</title>
 </head>
 
@@ -48,14 +51,16 @@
             <div class="col-md-4">
                 <div class="panel">
                     <p class="text top-left">The mystery name...</p>
-                    <h2 id="game"></h2>
+                    <!-- <h2 id="game"></h2> -->
+                    <h2 id="currentWord"></h2>
                     <p class="text bottom-right">...guess the super hero!</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="panel">
                     <p class="text top-left">Letters that have been guessed...</p>
-                    <h3 id="showLettersGuessed"></h3>
+                    <h3 id="guessedLetters"></h3>
+                    <!-- <h3 id="showLettersGuessed"></h3> -->
                     <hr />
                 </div>
             </div>
@@ -67,7 +72,8 @@
             <div class="col-md-6">
                 <div class="panel">
                     <p class="text top-left">Number of guesses remaining...</p>
-                    <h2 id="guesses"></h2>
+                    <!-- <h2 id="guesses"></h2> -->
+                    <h2 id="remainingGuesses"></h2>
                     <p class="text bottom-right">...hurry before it's too late!</p>
                 </div>
             </div>
@@ -75,7 +81,7 @@
             <div class="col-md-6">
                 <div class="panel">
                     <p class="text top-left">Number of wins...</p>
-                    <h2 id="wins"></h2>
+                    <h2 id="totalWins"></h2>
                     <p class="text bottom-right">...the end</p>
                     <hr />
                 </div>
@@ -83,8 +89,10 @@
         </div>
     </div>
 
- <!-- Link Hangman game javascript file -->
- <script src="assets/javascript/game.js"></script>
+<script>
+    updateDisplay();
+    resetGame();
+</script>
 
  
     <!-- Link Bootstrap JS files -->

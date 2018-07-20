@@ -6,28 +6,29 @@ var currentWordIndex;
 var guessingWord = [];
 var remainingGuesses = 0;
 var hasFinished = false;
+var gameStarted = false;
 var wins = 0;
 
 // Game sounds
 var backgroundSound = new Audio('./assets/music/avengers-theme.mp3');
-var keySound = new Audio('./assets/sounds/typewriter-key.wav');
-var winSound = new Audio('./assets/sounds/you-win.wav');
-var loseSound = new Audio('./assets/sounds/you-lose.wav');
+// var winSound = new Audio('./assets/sounds/you-win.wav');
+// var loseSound = new Audio('./assets/sounds/you-lose.wav');
 
 // Reset our game-level variables
 function resetGame() {
     remainingGuesses = maxTries;
+    gameStarted = false;
 
     // Use Math.floor to round the random number down to the nearest whole.
     currentWordIndex = Math.floor(Math.random() * (wordBank.length));
-
+    backgroundSound.play();
     // Clear out arrays
     guessedLetters = [];
     guessingWord = [];
 
     // Build the guessing word and clear it out
     for (var i = 0; i < wordBank[currentWordIndex].length; i++) {
-        guessingWord.push("_ ");
+        guessingWord.push(" _ ");
     }   
 
     // Show display
@@ -49,7 +50,7 @@ function updateDisplay() {
     //
     document.getElementById("currentWord").innerText = guessingWordText;
     document.getElementById("remainingGuesses").innerText = remainingGuesses;
-    document.getElementById("guessedLetters").innerText = guessedLetters;
+    document.getElementById("guessedLetters").innerText = guessedLetters.join(" ");;
 };
 
 // This function takes a letter and finds all instances of 
@@ -77,12 +78,12 @@ function evaluateGuess(letter) {
 };
 // Checks for a win by seeing if there are any remaining underscores in the guessingword we are building.
 function checkWin() {
-    if(guessingWord.indexOf("_") === -1) {
-        document.getElementById("youwin-image").style.cssText = "display: block";
-        document.getElementById("pressKeyTryAgain").style.cssText= "display: block";
+    if(guessingWord.indexOf(" _ ") === -1) {
         wins++;
-        backgroundSound.play();
+        // winSound.play();
         hasFinished = true;
+        resetGame();
+        hasFinished = false;
     }
 };
 
@@ -91,10 +92,10 @@ function checkWin() {
 function checkLoss()
 {
     if(remainingGuesses <= 0) {
-        loseSound.play();
-        document.getElementById("gameover-image").style.cssText = "display: block";
-        document.getElementById("pressKeyTryAgain").style.cssText = "display:block";
+        // loseSound.play();
         hasFinished = true;
+        resetGame();
+        hasFinished = false;
     }
 }
 
@@ -113,18 +114,10 @@ function makeGuess(letter) {
 
 // Event listener
 document.onkeydown = function(event) {
-    // If we finished a game, dump one keystroke and reset.
-    if(hasFinished) {
-        resetGame();
-        hasFinished = false;
-    } else {
-        // Check to make sure a-z was pressed.
         if(event.keyCode >= 65 && event.keyCode <= 90) {
-            keySound.play();
             makeGuess(event.key.toUpperCase());
             updateDisplay();
             checkWin();
             checkLoss();
-        }
     }
 };
