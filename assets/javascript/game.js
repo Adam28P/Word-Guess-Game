@@ -14,6 +14,10 @@ var backgroundSound = new Audio('assets/music/avengers-theme.mp3');
 // var winSound = new Audio('./assets/sounds/you-win.wav');
 // var loseSound = new Audio('./assets/sounds/you-lose.wav');
 
+  window.onload = function() {
+    backgroundSound.play();
+  };
+
 // Function to reset our game
 function resetGame() {
     remainingGuesses = guessAttempts;
@@ -21,7 +25,7 @@ function resetGame() {
 
     // Generate random number to select a word from our wordBank array
     currentWordIndex = Math.floor(Math.random() * (wordBank.length));
-    backgroundSound.play();
+   
 
     guessedLetters = [];
     guessingWord = [];
@@ -75,7 +79,7 @@ function checkWin() {
         wins++;
         // winSound.play();
         hasFinished = true;
-        resetGame();
+        setTimeout(resetGame, 700);
         hasFinished = false;
     }
 };
