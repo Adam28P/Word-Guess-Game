@@ -1,5 +1,5 @@
 // Initialize variables
-var wordBank = ["SUPERMAN", "CYBORG", "BATMAN", "SPIDERMAN", "VISION", "RAVEN", "FALCON", "LOKI", "HAWKEYE", "THOR", "WOLVERINE", "FLASH", "SUPERGIRL", "DAREDEVIL", "HULK", "AQUAMAN", "BATGIRL", "BATWOMAN", "ANTMAN", "WASP"];
+var wordBank = ["SUPERMAN", "CYBORG", "GAMORA", "GROOT", "BATMAN", "SPIDERMAN", "VISION", "RAVEN", "FALCON", "LOKI", "HAWKEYE", "THOR", "WOLVERINE", "FLASH", "SUPERGIRL", "DAREDEVIL", "HULK", "AQUAMAN", "BATGIRL", "BATWOMAN", "ANTMAN", "WASP"];
 var guessAttempts = 10;
 var guessedLetters = [];
 var currentWordIndex;
@@ -11,8 +11,8 @@ var wins = 0;
 
 // Background game sounds
 var backgroundSound = new Audio('assets/music/avengers-theme.mp3');
-// var winSound = new Audio('./assets/sounds/you-win.wav');
-// var loseSound = new Audio('./assets/sounds/you-lose.wav');
+var winSound = new Audio('assets/music/you-win.mp3');
+var loseSound = new Audio('assets/music/you-lose.mp3');
 
   window.onload = function() {
     backgroundSound.play();
@@ -22,7 +22,7 @@ var backgroundSound = new Audio('assets/music/avengers-theme.mp3');
 function resetGame() {
     remainingGuesses = guessAttempts;
     gameStarted = false;
-
+    backgroundSound.play();
     // Generate random number to select a word from our wordBank array
     currentWordIndex = Math.floor(Math.random() * (wordBank.length));
    
@@ -77,9 +77,10 @@ function evaluateGuess(letter) {
 function checkWin() {
     if(guessingWord.indexOf(" _ ") === -1) {
         wins++;
-        // winSound.play();
+        backgroundSound.pause();
+        winSound.play();
         hasFinished = true;
-        setTimeout(resetGame, 700);
+        setTimeout(resetGame, 5000);
         hasFinished = false;
     }
 };
@@ -89,9 +90,11 @@ function checkWin() {
 function checkLoss()
 {
     if(remainingGuesses <= 0) {
-        // loseSound.play();
+        document.getElementById("currentWord").innerText = wordBank[currentWordIndex];
+        backgroundSound.pause();
+        loseSound.play();
         hasFinished = true;
-        resetGame();
+        setTimeout(resetGame, 4000);
         hasFinished = false;
     }
 }
@@ -106,6 +109,8 @@ function makeGuess(letter) {
     }
     
 };
+
+
 
 
 // Event listener for when the user presses a key
