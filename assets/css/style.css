@@ -1,9 +1,3 @@
-
-
-h1, h2, h3, h4{
-   color:white;
-}
-
 /* import font */
 @font-face {
     font-family: 'slapstick_comic';
@@ -14,6 +8,10 @@ h1, h2, h3, h4{
          url('../fonts/SF_Slapstick_Comic-webfont.svg#slapstick_comic') format('svg');
     font-weight: normal;
     font-style: normal;
+}
+
+h1, h2, h3, h4{
+  color:white;
 }
 
 p{
@@ -61,23 +59,6 @@ transition: all 0.5s ease;
     text-align: center;
     vertical-align: middle;
     line-height: 150px;
-  }
-
-  .panel h1{
-    animation-name: fadeIn;
-	-webkit-animation-name: fadeIn;
-	-moz-animation-name: fadeIn;
-	-o-animation-name: fadeIn;	
-
-	animation-duration: 2.5s;	
-	-webkit-animation-duration: 2.5s;
-	-moz-animation-duration: 2.5s;
-	-o-animation-duration: 2.5s;
-	
-	animation-timing-function: ease-in-out;	
-	-webkit-animation-timing-function: ease-in-out;	
-	-moz-animation-timing-function: ease-in-out;	
-	-o-animation-timing-function: ease-in-out;	
   }
 
   /* panel hover */
@@ -139,4 +120,8 @@ h1 { font-size: 250%; }
 h2 { font-size: 200%; }
 h3 { font-size: 150%; }
 
-/*
+@media only screen and (max-width: 610px) {
+  h1, h2 {
+      font-size:150%;
+  }
+}
