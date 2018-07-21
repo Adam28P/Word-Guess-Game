@@ -86,7 +86,6 @@ function checkWin() {
     }
 };
 
-
 //Function to check for a loss
 function checkLoss() {
     if (remainingGuesses <= 0) {
@@ -108,9 +107,6 @@ function makeGuess(letter) {
     }
 
 };
-
-
-
 
 // Event listener for when the user presses a key
 
