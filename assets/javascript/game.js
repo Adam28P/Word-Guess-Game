@@ -14,18 +14,20 @@ var backgroundSound = new Audio('assets/music/avengers-theme.mp3');
 var winSound = new Audio('assets/music/you-win.mp3');
 var loseSound = new Audio('assets/music/you-lose.mp3');
 
-  window.onload = function() {
+// Play background music when web page loads
+window.onload = function () {
     backgroundSound.play();
-  };
+};
 
 // Function to reset our game
 function resetGame() {
+    hasFinished = false;
     remainingGuesses = guessAttempts;
     gameStarted = false;
     backgroundSound.play();
     // Generate random number to select a word from our wordBank array
     currentWordIndex = Math.floor(Math.random() * (wordBank.length));
-   
+
 
     guessedLetters = [];
     guessingWord = [];
@@ -33,7 +35,7 @@ function resetGame() {
     // Display word on screen as underscores
     for (var i = 0; i < wordBank[currentWordIndex].length; i++) {
         guessingWord.push(" _ ");
-    }   
+    }
 
     updateGame();
 };
@@ -59,7 +61,7 @@ function updateGame() {
 function evaluateGuess(letter) {
     var positions = [];
     for (var i = 0; i < wordBank[currentWordIndex].length; i++) {
-        if(wordBank[currentWordIndex][i] === letter) {
+        if (wordBank[currentWordIndex][i] === letter) {
             positions.push(i);
         }
     }
@@ -67,7 +69,7 @@ function evaluateGuess(letter) {
     if (positions.length <= 0) {
         remainingGuesses--;
     } else {
-        for(var i = 0; i < positions.length; i++) {
+        for (var i = 0; i < positions.length; i++) {
             guessingWord[positions[i]] = letter + " ";
         }
     }
@@ -75,27 +77,24 @@ function evaluateGuess(letter) {
 
 // Function to check for a win
 function checkWin() {
-    if(guessingWord.indexOf(" _ ") === -1) {
+    if (guessingWord.indexOf(" _ ") === -1) {
+        hasFinished = true;
         wins++;
         backgroundSound.pause();
         winSound.play();
-        hasFinished = true;
         setTimeout(resetGame, 5000);
-        hasFinished = false;
     }
 };
 
 
 //Function to check for a loss
-function checkLoss()
-{
-    if(remainingGuesses <= 0) {
+function checkLoss() {
+    if (remainingGuesses <= 0) {
+        hasFinished = true;
         document.getElementById("currentWord").innerText = wordBank[currentWordIndex];
         backgroundSound.pause();
         loseSound.play();
-        hasFinished = true;
         setTimeout(resetGame, 4000);
-        hasFinished = false;
     }
 }
 
@@ -107,18 +106,21 @@ function makeGuess(letter) {
             evaluateGuess(letter);
         }
     }
-    
+
 };
 
 
 
 
 // Event listener for when the user presses a key
-document.onkeydown = function(event) {
-        if(event.keyCode >= 65 && event.keyCode <= 90) {
+
+document.onkeydown = function (event) {
+    if (hasFinished === false) {
+        if (event.keyCode >= 65 && event.keyCode <= 90) {
             makeGuess(event.key.toUpperCase());
             updateGame();
             checkWin();
             checkLoss();
+        }
     }
 };
