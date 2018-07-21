@@ -105,7 +105,6 @@ function makeGuess(letter) {
             evaluateGuess(letter);
         }
     }
-
 };
 
 // Event listener for when the user presses a key
